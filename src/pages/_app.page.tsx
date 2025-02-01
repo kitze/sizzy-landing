@@ -8,8 +8,6 @@ import "styles/global.css";
 import { emotionCache } from "styles/emotion-cache";
 import { mantineTheme } from "styles/theme";
 import { getMetaImage, sizzyLogoUrl } from "utils/get-meta-image";
-import { useGoogleAnalytics, useOnPageLoad } from "../utils/utils";
-import { useAffiliateTracking } from "hooks/useAffiliateTracking";
 import { CookieProvider } from "hooks/useCookies";
 import PlausibleProvider from "next-plausible";
 
@@ -21,15 +19,6 @@ export const SIZZY_DESCRIPTION = `Develop, debug and test your website with ease
 const InnerApp: React.FC<AppProps> = (props) => {
   const { pageProps } = props;
   const Component = props.Component as any;
-  const pageLoaded = useOnPageLoad();
-
-  useAffiliateTracking();
-  useGoogleAnalytics({
-    id: process.env.NEXT_PUBLIC_ANALYTICS_ID as string,
-    startLoading: pageLoaded,
-    delay: 100,
-  });
-
   const [scroll] = useWindowScroll();
   const mightBeDesktop = useMediaQuery("(min-width: 900px)");
 
@@ -92,7 +81,7 @@ const App: React.FC<AppProps> = (props) => {
         <meta property="og:image" content={socialImage} />
 
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes ="32x32" href="/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="manifest" href="/site.webmanifest" />
       </Head>
