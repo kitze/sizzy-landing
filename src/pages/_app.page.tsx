@@ -13,8 +13,6 @@ import { useAffiliateTracking } from "hooks/useAffiliateTracking";
 import { CookieProvider } from "hooks/useCookies";
 import PlausibleProvider from "next-plausible";
 
-import posthog from "posthog-js";
-import { PostHogProvider } from "posthog-js/react";
 
 export const SIZZY_TAGLINE = "The browser for web developers";
 export const SIZZY_TITLE = `Sizzy — ${SIZZY_TAGLINE}`;
@@ -60,16 +58,6 @@ const InnerApp: React.FC<AppProps> = (props) => {
   );
 };
 
-if (typeof window !== "undefined") {
-  // checks that we are client-side
-  posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY, {
-    api_host: process.env.NEXT_PUBLIC_POSTHOG_HOST || "https://app.posthog.com",
-    loaded: (posthog) => {
-      if (process.env.NODE_ENV === "development") posthog.debug(); // debug mode in development
-    },
-  });
-}
-
 const App: React.FC<AppProps> = (props) => {
   const socialImage = getMetaImage({
     preset: "netlify",
@@ -109,7 +97,6 @@ const App: React.FC<AppProps> = (props) => {
         <link rel="manifest" href="/site.webmanifest" />
       </Head>
 
-      <PostHogProvider client={posthog}>
         <PlausibleProvider domain={"sizzy.co"}>
           <MantineProvider
             withGlobalStyles
@@ -122,7 +109,6 @@ const App: React.FC<AppProps> = (props) => {
             </CookieProvider>
           </MantineProvider>
         </PlausibleProvider>
-      </PostHogProvider>
     </>
   );
 };
