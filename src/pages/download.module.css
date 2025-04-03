@@ -3,7 +3,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, #3a3a4e, #525267);
+  background: linear-gradient(135deg, #1e1e24, #2d2d35);
   padding: 2rem;
 }
 
@@ -15,16 +15,17 @@
   gap: 2rem;
   max-width: 800px;
   padding: 3rem;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.07);
   border-radius: 20px;
   backdrop-filter: blur(5px);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .title {
   font-size: 3.5rem;
   font-weight: 700;
-  background: linear-gradient(to right, #e0cfff, #c7b8ff, #d5ccff);
+  background: linear-gradient(to right, #f0f0f0, #e0e0e0);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -42,10 +43,11 @@
 .timePortal {
   position: relative;
   padding: 1.5rem 2rem;
-  background: linear-gradient(45deg, #6354a3, #7a71b0);
+  background: linear-gradient(45deg, #5d4da8, #7665b0);
   border-radius: 12px;
   transform: rotate(-2deg);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .timeTravelText {
@@ -62,7 +64,7 @@
 
 .info {
   font-size: 1rem;
-  color: #d1d1da;
+  color: #a0a0a0;
 }
 
 .buttonContainer {
@@ -71,7 +73,7 @@
 
 .button {
   display: inline-block;
-  background: linear-gradient(45deg, #6050a1, #8476b9);
+  background: linear-gradient(45deg, #6050a1, #7a65b2);
   color: white;
   font-weight: 500;
   padding: 0.8rem 2rem;
@@ -80,11 +82,13 @@
   transition: all 0.3s;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   font-size: 1.1rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .button:hover {
   transform: translateY(-3px);
   box-shadow: 0 7px 20px rgba(0, 0, 0, 0.4);
+  background: linear-gradient(45deg, #6c5cb9, #876dc0);
 }
 
 .bold {
@@ -106,5 +110,22 @@
 @media (max-width: 768px) {
   .title {
     font-size: 2.5rem;
+  }
+}
+
+.bigEmoji {
+  font-size: 6rem;
+  margin-bottom: 1rem;
+  animation: bounce 2s infinite ease-in-out;
+  text-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
   }
 }

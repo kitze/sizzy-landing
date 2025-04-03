@@ -6,10 +6,7 @@ export default function DownloadPage() {
   return (
     <div className={styles.container}>
       <div className={styles.contentWrapper}>
-        <h1 className={styles.title}>
-          <span className={styles.emoji}>🚀</span> Download Sizzy{" "}
-          <span className={styles.emoji}>🤠</span>
-        </h1>
+        <div className={styles.bigEmoji}>🤠</div>
 
         <div className={styles.timePortal}>
           <p className={styles.timeTravelText}>Hello time traveler, you found a page from 2022!</p>
