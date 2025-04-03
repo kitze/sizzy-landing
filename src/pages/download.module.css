@@ -129,3 +129,16 @@
     transform: translateY(-15px);
   }
 }
+
+.imageContainer {
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 1rem;
+}
+
+.timeTravelersImage {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+}

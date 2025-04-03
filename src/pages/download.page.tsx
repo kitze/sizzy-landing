@@ -1,12 +1,19 @@
 import React from "react";
-import Link from "next/link";
 import styles from "./download.module.css";
 
 export default function DownloadPage() {
   return (
     <div className={styles.container}>
       <div className={styles.contentWrapper}>
-        <div className={styles.bigEmoji}>🤠</div>
+        <div className={styles.imageContainer}>
+          <img
+            src="/time-travelers.png"
+            alt="Time travelers from 2022 discovering Sizzy"
+            width={400}
+            height={400}
+            className={styles.timeTravelersImage}
+          />
+        </div>
 
         <div className={styles.timePortal}>
           <p className={styles.timeTravelText}>Hello time traveler, you found a page from 2022!</p>
