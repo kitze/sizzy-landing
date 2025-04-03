@@ -11,7 +11,6 @@ import { getMetaImage, sizzyLogoUrl } from "utils/get-meta-image";
 import { CookieProvider } from "hooks/useCookies";
 import PlausibleProvider from "next-plausible";
 
-
 export const SIZZY_TAGLINE = "The browser for web developers";
 export const SIZZY_TITLE = `Sizzy — ${SIZZY_TAGLINE}`;
 export const SIZZY_DESCRIPTION = `Develop, debug and test your website with ease and speed. Intuitive and quick development tools help you focus on your product and ideas.`;
@@ -81,23 +80,21 @@ const App: React.FC<AppProps> = (props) => {
         <meta property="og:image" content={socialImage} />
 
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-        <link rel="icon" type="image/png" sizes ="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="manifest" href="/site.webmanifest" />
       </Head>
 
-        <PlausibleProvider domain={"sizzy.co"}>
-          <MantineProvider
-            withGlobalStyles
-            withNormalizeCSS
-            emotionCache={emotionCache}
-            theme={mantineTheme}
-          >
-            <CookieProvider>
-              <InnerApp {...props} />
-            </CookieProvider>
-          </MantineProvider>
-        </PlausibleProvider>
+      <MantineProvider
+        withGlobalStyles
+        withNormalizeCSS
+        emotionCache={emotionCache}
+        theme={mantineTheme}
+      >
+        <CookieProvider>
+          <InnerApp {...props} />
+        </CookieProvider>
+      </MantineProvider>
     </>
   );
 };
