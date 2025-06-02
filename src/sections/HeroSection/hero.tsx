@@ -1,6 +1,7 @@
 import { Button, Text } from "@mantine/core";
 import BadassTitle, { Highlight } from "components/BadassTitle";
 import DownloadButton from "components/DownloadButton";
+import { Windows11Banner } from "components/Windows11Banner";
 import React from "react";
 
 import { useStyles } from "sections/HeroSection/styles";
@@ -17,9 +18,13 @@ export const Hero: ReactFC<{ tweets: Tweet[] }> = ({ tweets }) => {
       <Vertical fullW>
         <Vertical fullW center spacing="xl" className={`${classes.inner} sizzy-teal-3`}>
           <Vertical fullW spacing="lg" center>
+            {/* Windows 11 Banner */}
+            <Windows11Banner />
+
             <BadassTitle maxWidth={800}>
               <Highlight>The</Highlight> browser for web developers
             </BadassTitle>
+
             <Vertical center className={classes.content} spacing="sm">
               <Text className={classes.description} align="center">
                 <b style={{ fontWeight: 900 }}>Before Sizzy:</b> web development is stressing you
