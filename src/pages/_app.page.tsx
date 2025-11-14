@@ -3,7 +3,6 @@ import { Affix, Group, MantineProvider, Transition } from "@mantine/core";
 import { useMediaQuery, useWindowScroll } from "@mantine/hooks";
 import { AppProps } from "next/app";
 import Head from "next/head";
-import Script from "next/script";
 
 import "styles/global.css";
 import { emotionCache } from "styles/emotion-cache";
@@ -94,6 +93,12 @@ const App: React.FC<AppProps> = (props) => {
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="manifest" href="/site.webmanifest" />
+        <script
+          defer
+          data-website-id="dfid_gpYGxq2NIz9z7eRmJDfTj"
+          data-domain="sizzy.co"
+          src="https://datafa.st/js/script.js"
+        />
       </Head>
 
       <MantineProvider
@@ -106,14 +111,6 @@ const App: React.FC<AppProps> = (props) => {
           <InnerApp {...props} />
         </CookieProvider>
       </MantineProvider>
-
-      <Script
-        src="https://datafa.st/js/script.js"
-        defer
-        data-website-id="dfid_gpYGxq2NIz9z7eRmJDfTj"
-        data-domain="sizzy.co"
-        strategy="lazyOnload"
-      />
     </>
   );
 };
