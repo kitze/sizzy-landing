@@ -8,7 +8,7 @@ import "styles/global.css";
 import { emotionCache } from "styles/emotion-cache";
 import { mantineTheme } from "styles/theme";
 import { getMetaImage, sizzyLogoUrl } from "utils/get-meta-image";
-import { useGoogleAnalytics, useOnPageLoad } from "../utils/utils";
+import { useDatafast, useOnPageLoad } from "../utils/utils";
 import { useAffiliateTracking } from "hooks/useAffiliateTracking";
 import { CookieProvider } from "hooks/useCookies";
 
@@ -22,8 +22,9 @@ const InnerApp: React.FC<AppProps> = (props) => {
   const pageLoaded = useOnPageLoad();
 
   useAffiliateTracking();
-  useGoogleAnalytics({
-    id: process.env.NEXT_PUBLIC_ANALYTICS_ID as string,
+  useDatafast({
+    websiteId: "dfid_gpYGxq2NIz9z7eRmJDfTj",
+    domain: "sizzy.co",
     startLoading: pageLoaded,
     delay: 100,
   });
@@ -93,12 +94,6 @@ const App: React.FC<AppProps> = (props) => {
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="manifest" href="/site.webmanifest" />
-        <script
-          defer
-          data-website-id="dfid_gpYGxq2NIz9z7eRmJDfTj"
-          data-domain="sizzy.co"
-          src="https://datafa.st/js/script.js"
-        />
       </Head>
 
       <MantineProvider

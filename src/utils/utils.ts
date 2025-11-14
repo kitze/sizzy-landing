@@ -11,12 +11,14 @@ export const useOnPageLoad = () => {
   return loaded;
 };
 
-export const useGoogleAnalytics = ({
-  id,
+export const useDatafast = ({
+  websiteId,
+  domain,
   startLoading,
   delay = 0,
 }: {
-  id: string;
+  websiteId: string;
+  domain: string;
   startLoading: boolean;
   delay: number;
 }) => {
@@ -25,35 +27,20 @@ export const useGoogleAnalytics = ({
       if (isDev) {
         return;
       }
-      if (!id) {
-        throw new Error("Must provide id");
+      if (!websiteId || !domain) {
+        throw new Error("Must provide websiteId and domain");
       }
       setTimeout(() => {
         let script = document.createElement("script");
         script.type = "text/javascript";
-        script.src = `https://www.googletagmanager.com/gtag/js?id=${id}`;
+        script.defer = true;
+        script.src = "https://datafa.st/js/script.js";
+        script.setAttribute("data-website-id", websiteId);
+        script.setAttribute("data-domain", domain);
         document.body.appendChild(script);
-        //@ts-ignore
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-          //@ts-ignore
-          window.dataLayer.push(arguments);
-        }
-
-        //@ts-ignore
-        window.gtag = gtag;
-
-        //@ts-ignore
-        gtag("js", new Date());
-        //@ts-ignore
-        gtag("config", id, {
-          anonymize_ip: true,
-          cookie_expires: 0,
-        });
       }, delay);
     }
-  }, [startLoading]);
+  }, [startLoading, websiteId, domain, delay]);
 };
 
 // https://developers.google.com/analytics/devguides/collection/gtagjs/events
