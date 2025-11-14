@@ -3,13 +3,15 @@ import { Affix, Group, MantineProvider, Transition } from "@mantine/core";
 import { useMediaQuery, useWindowScroll } from "@mantine/hooks";
 import { AppProps } from "next/app";
 import Head from "next/head";
+import Script from "next/script";
 
 import "styles/global.css";
 import { emotionCache } from "styles/emotion-cache";
 import { mantineTheme } from "styles/theme";
 import { getMetaImage, sizzyLogoUrl } from "utils/get-meta-image";
+import { useGoogleAnalytics, useOnPageLoad } from "../utils/utils";
+import { useAffiliateTracking } from "hooks/useAffiliateTracking";
 import { CookieProvider } from "hooks/useCookies";
-import PlausibleProvider from "next-plausible";
 
 export const SIZZY_TAGLINE = "The browser for web developers";
 export const SIZZY_TITLE = `Sizzy — ${SIZZY_TAGLINE}`;
@@ -18,6 +20,15 @@ export const SIZZY_DESCRIPTION = `Develop, debug and test your website with ease
 const InnerApp: React.FC<AppProps> = (props) => {
   const { pageProps } = props;
   const Component = props.Component as any;
+  const pageLoaded = useOnPageLoad();
+
+  useAffiliateTracking();
+  useGoogleAnalytics({
+    id: process.env.NEXT_PUBLIC_ANALYTICS_ID as string,
+    startLoading: pageLoaded,
+    delay: 100,
+  });
+
   const [scroll] = useWindowScroll();
   const mightBeDesktop = useMediaQuery("(min-width: 900px)");
 
@@ -95,6 +106,14 @@ const App: React.FC<AppProps> = (props) => {
           <InnerApp {...props} />
         </CookieProvider>
       </MantineProvider>
+
+      <Script
+        src="https://datafa.st/js/script.js"
+        defer
+        data-website-id="dfid_gpYGxq2NIz9z7eRmJDfTj"
+        data-domain="sizzy.co"
+        strategy="lazyOnload"
+      />
     </>
   );
 };
