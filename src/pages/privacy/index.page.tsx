@@ -177,24 +177,13 @@ const Privacy = () => {
                 </li>
                 <li className={"text"}>
                   <span className={"text"}>
-                    We automatically send crash reports through{" "}
+                    We automatically send crash reports and anonymous usage data through{" "}
                     <a
-                      className="sentry"
-                      href="https://sentry.io/"
+                      href="https://posthog.com/"
                       target="blank"
                       rel="noopener noreferrer"
                     >
-                      Sentry
-                    </a>
-                    . This makes it easier for us to troubleshoot problems and
-                    release fixes when something goes wrong. We collect
-                    anonymous usage data with{" "}
-                    <a
-                      href="https://mixpanel.com/"
-                      target="blank"
-                      rel="noopener noreferrer"
-                    >
-                      Mixpanel
+                      PostHog
                     </a>
                     . This data is completely anonymous and it only tracks the
                     usage of features, plugins, settings etc. This data helps us
