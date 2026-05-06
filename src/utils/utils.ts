@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { captureSizzyEvent } from "utils/posthog";
 
 export const isProd = process.env.NODE_ENV === "production";
 export const isDev = !isProd;
@@ -68,4 +69,5 @@ export const trackButtonClick = (label: string) => {
     action: "buton_click",
     label,
   });
+  captureSizzyEvent("landing_button_clicked", { label });
 };

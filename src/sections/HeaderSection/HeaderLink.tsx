@@ -4,6 +4,7 @@ import Conditional from "conditional-wrap";
 import NextLink from "next/link";
 import React from "react";
 import { LinkType, ReactFC } from "types";
+import { trackOutboundClick } from "utils/posthog";
 import { trackButtonClick } from "utils/utils";
 
 const HeaderLink: ReactFC<{
@@ -49,9 +50,16 @@ const HeaderLink: ReactFC<{
           {...(isActive && {
             sx: (theme) => ({ color: theme.colors.purple[6] }),
           })}
-          onClick={() => {
+          onClick={(event) => {
             closeMenu();
             trackButtonClick(link.label);
+            if (link.isExternal) {
+              (event.currentTarget as unknown as HTMLAnchorElement).href = trackOutboundClick(
+                link.link,
+                link.label,
+                "header"
+              );
+            }
           }}
         >
           {link.label}

@@ -1,4 +1,5 @@
 import React from "react";
+import { trackOutboundClick } from "utils/posthog";
 import styles from "./download.module.css";
 
 export default function DownloadPage() {
@@ -34,6 +35,13 @@ export default function DownloadPage() {
             className={styles.button}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={(event) => {
+              event.currentTarget.href = trackOutboundClick(
+                "https://portal.sizzy.co/pricing",
+                "Download page free trial",
+                "download_page"
+              );
+            }}
           >
             Start <span className={styles.bold}>Free</span> Trial ✨
           </a>

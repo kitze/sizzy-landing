@@ -8,9 +8,9 @@ import "styles/global.css";
 import { emotionCache } from "styles/emotion-cache";
 import { mantineTheme } from "styles/theme";
 import { getMetaImage, sizzyLogoUrl } from "utils/get-meta-image";
-import { useDatafast, useOnPageLoad } from "../utils/utils";
 import { useAffiliateTracking } from "hooks/useAffiliateTracking";
 import { CookieProvider } from "hooks/useCookies";
+import { usePostHogPageviews } from "utils/posthog";
 
 export const SIZZY_TAGLINE = "The browser for web developers";
 export const SIZZY_TITLE = `Sizzy — ${SIZZY_TAGLINE}`;
@@ -19,15 +19,9 @@ export const SIZZY_DESCRIPTION = `Develop, debug and test your website with ease
 const InnerApp: React.FC<AppProps> = (props) => {
   const { pageProps } = props;
   const Component = props.Component as any;
-  const pageLoaded = useOnPageLoad();
 
   useAffiliateTracking();
-  useDatafast({
-    websiteId: "dfid_gpYGxq2NIz9z7eRmJDfTj",
-    domain: "sizzy.co",
-    startLoading: pageLoaded,
-    delay: 100,
-  });
+  usePostHogPageviews();
 
   const [scroll] = useWindowScroll();
   const mightBeDesktop = useMediaQuery("(min-width: 900px)");
