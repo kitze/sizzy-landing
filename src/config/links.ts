@@ -53,6 +53,11 @@ let browserSizeCheatSheet = {
   label: "Browser Size Cheat Sheet",
 };
 
+let visualRegressionGuide = {
+  link: "/blog/responsive-visual-regression-checklist",
+  label: "Visual Regression Guide",
+};
+
 const youtube = {
   link: "https://youtube.com/@sizzyapp",
   label: "YouTube",
@@ -101,6 +106,7 @@ export let learnPopupLinks = [
   websiteBreakpointFinder,
   cssBreakpointChecker,
   browserSizeCheatSheet,
+  visualRegressionGuide,
   docs,
   roadmap,
   changelog,

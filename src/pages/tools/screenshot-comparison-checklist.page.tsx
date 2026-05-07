@@ -917,6 +917,9 @@ const ScreenshotComparisonChecklistPage = () => {
                 <Anchor href="/tools/viewport-checker">Viewport checker</Anchor>
                 <Anchor href="/tools/website-breakpoint-finder">Breakpoint finder</Anchor>
                 <Anchor href="/tools/css-breakpoint-checker">CSS breakpoint checker</Anchor>
+                <Anchor href="/blog/responsive-visual-regression-checklist">
+                  Visual regression guide
+                </Anchor>
                 <Anchor href="/features/screenshots">Sizzy screenshots</Anchor>
               </Group>
             </Stack>
@@ -1298,6 +1301,9 @@ const ScreenshotComparisonChecklistPage = () => {
                 </Anchor>
                 <Anchor ml="md" mt={10} href="/tools/viewport-checker">
                   Check viewport sizes
+                </Anchor>
+                <Anchor ml="md" mt={10} href="/blog/responsive-visual-regression-checklist">
+                  Read visual regression guide
                 </Anchor>
               </Box>
               <Button

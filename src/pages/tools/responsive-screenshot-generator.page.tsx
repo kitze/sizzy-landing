@@ -484,6 +484,9 @@ const ResponsiveScreenshotGeneratorPage = () => {
                 <Anchor href="/tools/responsive-qa-checklist">QA checklist</Anchor>
                 <Anchor href="/tools/website-breakpoint-finder">Breakpoint finder</Anchor>
                 <Anchor href="/blog/responsive-viewport-sizes">Viewport sizes guide</Anchor>
+                <Anchor href="/blog/responsive-visual-regression-checklist">
+                  Visual regression guide
+                </Anchor>
                 <Anchor href="/features/screenshots">Sizzy screenshots</Anchor>
                 <Anchor href="/features/responsive-mode">Responsive mode</Anchor>
               </Group>
@@ -722,6 +725,9 @@ const ResponsiveScreenshotGeneratorPage = () => {
                 </Anchor>
                 <Anchor ml="md" mt={10} href="/tools/website-breakpoint-finder">
                   Find breakpoints
+                </Anchor>
+                <Anchor ml="md" mt={10} href="/blog/responsive-visual-regression-checklist">
+                  Read visual regression guide
                 </Anchor>
               </Box>
               <Button
