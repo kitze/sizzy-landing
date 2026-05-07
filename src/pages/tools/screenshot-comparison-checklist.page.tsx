@@ -917,6 +917,7 @@ const ScreenshotComparisonChecklistPage = () => {
                 <Anchor href="/tools/viewport-checker">Viewport checker</Anchor>
                 <Anchor href="/tools/website-breakpoint-finder">Breakpoint finder</Anchor>
                 <Anchor href="/tools/css-breakpoint-checker">CSS breakpoint checker</Anchor>
+                <Anchor href="/blog/iphone-viewport-sizes">iPhone viewport sizes</Anchor>
                 <Anchor href="/blog/responsive-visual-regression-checklist">
                   Visual regression guide
                 </Anchor>

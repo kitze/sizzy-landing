@@ -379,6 +379,7 @@ const ViewportCheckerPage = () => {
               </Text>
               <Group spacing="sm">
                 <Anchor href="/blog/responsive-viewport-sizes">Viewport sizes guide</Anchor>
+                <Anchor href="/blog/iphone-viewport-sizes">iPhone viewport sizes</Anchor>
                 <Anchor href="/tools/responsive-screenshot-generator">Screenshot generator</Anchor>
                 <Anchor href="/tools/responsive-qa-checklist">QA checklist</Anchor>
                 <Anchor href="/tools/website-breakpoint-finder">Breakpoint finder</Anchor>
@@ -535,6 +536,9 @@ const ViewportCheckerPage = () => {
                 </Text>
                 <Anchor mt={10} href="/blog/responsive-viewport-sizes">
                   Read the viewport sizes guide
+                </Anchor>
+                <Anchor ml="md" mt={10} href="/blog/iphone-viewport-sizes">
+                  iPhone viewport sizes
                 </Anchor>
                 <Anchor ml="md" mt={10} href="/tools/responsive-screenshot-generator">
                   Generate screenshot batch

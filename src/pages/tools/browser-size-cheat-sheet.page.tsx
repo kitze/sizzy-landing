@@ -663,6 +663,7 @@ const BrowserSizeCheatSheetPage = () => {
                 <Anchor href="/tools/responsive-screenshot-generator">Screenshot generator</Anchor>
                 <Anchor href="/tools/responsive-qa-checklist">QA checklist</Anchor>
                 <Anchor href="/blog/responsive-viewport-sizes">Viewport sizes guide</Anchor>
+                <Anchor href="/blog/iphone-viewport-sizes">iPhone viewport sizes</Anchor>
                 <Anchor href="/features/responsive-mode">Responsive mode</Anchor>
                 <Anchor href="/features/device-simulation">Device simulation</Anchor>
               </Group>
@@ -890,6 +891,9 @@ const BrowserSizeCheatSheetPage = () => {
                 </Text>
                 <Anchor mt={10} href="/tools/viewport-checker">
                   Check one viewport
+                </Anchor>
+                <Anchor ml="md" mt={10} href="/blog/iphone-viewport-sizes">
+                  iPhone viewport sizes
                 </Anchor>
                 <Anchor ml="md" mt={10} href="/tools/website-breakpoint-finder">
                   Find breakpoints
