@@ -38,6 +38,11 @@ let websiteBreakpointFinder = {
   label: "Breakpoint Finder",
 };
 
+let browserSizeCheatSheet = {
+  link: "/tools/browser-size-cheat-sheet",
+  label: "Browser Size Cheat Sheet",
+};
+
 const youtube = {
   link: "https://youtube.com/@sizzyapp",
   label: "YouTube",
@@ -83,6 +88,7 @@ export let learnPopupLinks = [
   screenshotGenerator,
   responsiveQaChecklist,
   websiteBreakpointFinder,
+  browserSizeCheatSheet,
   docs,
   roadmap,
   changelog,
