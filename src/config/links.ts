@@ -38,6 +38,11 @@ let websiteBreakpointFinder = {
   label: "Breakpoint Finder",
 };
 
+let cssBreakpointChecker = {
+  link: "/tools/css-breakpoint-checker",
+  label: "CSS Breakpoint Checker",
+};
+
 let browserSizeCheatSheet = {
   link: "/tools/browser-size-cheat-sheet",
   label: "Browser Size Cheat Sheet",
@@ -88,6 +93,7 @@ export let learnPopupLinks = [
   screenshotGenerator,
   responsiveQaChecklist,
   websiteBreakpointFinder,
+  cssBreakpointChecker,
   browserSizeCheatSheet,
   docs,
   roadmap,
