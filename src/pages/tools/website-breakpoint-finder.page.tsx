@@ -577,6 +577,7 @@ const WebsiteBreakpointFinderPage = () => {
                 <Anchor href="/tools/responsive-screenshot-generator">Screenshot generator</Anchor>
                 <Anchor href="/tools/responsive-qa-checklist">QA checklist</Anchor>
                 <Anchor href="/blog/responsive-viewport-sizes">Viewport sizes guide</Anchor>
+                <Anchor href="/blog/android-viewport-sizes">Android viewport sizes</Anchor>
                 <Anchor href="/features/responsive-mode">Responsive mode</Anchor>
                 <Anchor href="/features/device-simulation">Device simulation</Anchor>
               </Group>

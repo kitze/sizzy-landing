@@ -58,6 +58,11 @@ let iphoneViewportSizes = {
   label: "iPhone Viewport Sizes",
 };
 
+let androidViewportSizes = {
+  link: "/blog/android-viewport-sizes",
+  label: "Android Viewport Sizes",
+};
+
 let visualRegressionGuide = {
   link: "/blog/responsive-visual-regression-checklist",
   label: "Visual Regression Guide",
@@ -111,6 +116,7 @@ export let learnPopupLinks = [
   websiteBreakpointFinder,
   cssBreakpointChecker,
   browserSizeCheatSheet,
+  androidViewportSizes,
   iphoneViewportSizes,
   visualRegressionGuide,
   docs,
