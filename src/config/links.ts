@@ -68,6 +68,11 @@ let visualRegressionGuide = {
   label: "Visual Regression Guide",
 };
 
+let responsiveBreakpointChecklist = {
+  link: "/blog/responsive-breakpoint-checklist",
+  label: "Breakpoint Checklist",
+};
+
 const youtube = {
   link: "https://youtube.com/@sizzyapp",
   label: "YouTube",
@@ -116,6 +121,7 @@ export let learnPopupLinks = [
   websiteBreakpointFinder,
   cssBreakpointChecker,
   browserSizeCheatSheet,
+  responsiveBreakpointChecklist,
   androidViewportSizes,
   iphoneViewportSizes,
   visualRegressionGuide,
