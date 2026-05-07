@@ -28,6 +28,11 @@ let screenshotGenerator = {
   label: "Screenshot Generator",
 };
 
+let screenshotComparisonChecklist = {
+  link: "/tools/screenshot-comparison-checklist",
+  label: "Screenshot Comparison Checklist",
+};
+
 let responsiveQaChecklist = {
   link: "/tools/responsive-qa-checklist",
   label: "QA Checklist",
@@ -91,6 +96,7 @@ export let headerLinks: LinkType[] = [
 export let learnPopupLinks = [
   viewportChecker,
   screenshotGenerator,
+  screenshotComparisonChecklist,
   responsiveQaChecklist,
   websiteBreakpointFinder,
   cssBreakpointChecker,
