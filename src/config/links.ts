@@ -18,6 +18,26 @@ let blog = {
   label: "Blog",
 };
 
+let viewportChecker = {
+  link: "/tools/viewport-checker",
+  label: "Viewport Checker",
+};
+
+let screenshotGenerator = {
+  link: "/tools/responsive-screenshot-generator",
+  label: "Screenshot Generator",
+};
+
+let responsiveQaChecklist = {
+  link: "/tools/responsive-qa-checklist",
+  label: "QA Checklist",
+};
+
+let websiteBreakpointFinder = {
+  link: "/tools/website-breakpoint-finder",
+  label: "Breakpoint Finder",
+};
+
 const youtube = {
   link: "https://youtube.com/@sizzyapp",
   label: "YouTube",
@@ -58,7 +78,16 @@ export let headerLinks: LinkType[] = [
   about,
 ];
 
-export let learnPopupLinks = [docs, roadmap, changelog, youtube];
+export let learnPopupLinks = [
+  viewportChecker,
+  screenshotGenerator,
+  responsiveQaChecklist,
+  websiteBreakpointFinder,
+  docs,
+  roadmap,
+  changelog,
+  youtube,
+];
 export let companyLinks = [about, jobs];
 export const mobileLinks: LinkType[] = [...headerLinks, ...learnPopupLinks, login];
 

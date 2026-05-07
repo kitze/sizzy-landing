@@ -1,12 +1,4 @@
-import {
-  Anchor,
-  Container,
-  createStyles,
-  Group,
-  Stack,
-  Text,
-  Title,
-} from "@mantine/core";
+import { Anchor, Container, createStyles, Group, Stack, Text, Title } from "@mantine/core";
 import Link from "next/link";
 import React from "react";
 import { LinkType } from "types";
@@ -45,8 +37,8 @@ interface FooterSimpleProps {
 export function FooterSimple({ links }: FooterSimpleProps) {
   const { classes } = useStyles();
   const items = links.map((link) => (
-    <Link key={link.link} href={link.link} passHref>
-      <Anchor color="dimmed" key={link.label} size="sm">
+    <Link key={link.link} href={link.link} passHref legacyBehavior>
+      <Anchor color="dimmed" size="sm">
         {link.label}
       </Anchor>
     </Link>
