@@ -1,139 +1,56 @@
-import { LinkType } from "types";
-import { allJobs } from "contentlayer/generated";
+import {
+  LucideBookOpen,
+  LucideCreditCard,
+  type LucideIcon,
+  LucideInfo,
+  LucideHome,
+  LucideFileText,
+  LucideMessageSquare,
+} from "lucide-react";
+import { clientEnv } from "@/env/client";
 
-let docs = {
-  link: "https://docs.sizzy.co",
-  label: "Docs",
-  isExternal: true,
+export interface Link {
+  label: string;
+  href: string;
+  icon?: LucideIcon;
+}
+
+// Conditionally return links based on feature flags
+export const blogLink: Link | null = clientEnv.NEXT_PUBLIC_ENABLE_BLOG_PAGE
+  ? {
+      label: "Blog",
+      href: "/blog",
+      icon: LucideBookOpen,
+    }
+  : null;
+
+export const pricingLink: Link | null =
+  clientEnv.NEXT_PUBLIC_ENABLE_PRICING_PAGE
+    ? {
+        label: "Pricing",
+        href: "/pricing",
+        icon: LucideCreditCard,
+      }
+    : null;
+
+export const aboutLink: Link | null = clientEnv.NEXT_PUBLIC_ENABLE_ABOUT_PAGE
+  ? {
+      label: "About",
+      href: "/about",
+      icon: LucideInfo,
+    }
+  : null;
+
+export const homeLink: Link = {
+  label: "Home",
+  href: "/home",
+  icon: LucideHome,
 };
 
-let roadmap = {
-  link: "https://glink.so/sizzy/roadmap",
-  label: "Roadmap",
-  isExternal: true,
-};
-
-let blog = {
-  link: "/blog",
-  label: "Blog",
-};
-
-let viewportChecker = {
-  link: "/tools/viewport-checker",
-  label: "Viewport Checker",
-};
-
-let screenshotGenerator = {
-  link: "/tools/responsive-screenshot-generator",
-  label: "Screenshot Generator",
-};
-
-let screenshotComparisonChecklist = {
-  link: "/tools/screenshot-comparison-checklist",
-  label: "Screenshot Comparison Checklist",
-};
-
-let responsiveQaChecklist = {
-  link: "/tools/responsive-qa-checklist",
-  label: "QA Checklist",
-};
-
-let websiteBreakpointFinder = {
-  link: "/tools/website-breakpoint-finder",
-  label: "Breakpoint Finder",
-};
-
-let cssBreakpointChecker = {
-  link: "/tools/css-breakpoint-checker",
-  label: "CSS Breakpoint Checker",
-};
-
-let browserSizeCheatSheet = {
-  link: "/tools/browser-size-cheat-sheet",
-  label: "Browser Size Cheat Sheet",
-};
-
-let iphoneViewportSizes = {
-  link: "/blog/iphone-viewport-sizes",
-  label: "iPhone Viewport Sizes",
-};
-
-let androidViewportSizes = {
-  link: "/blog/android-viewport-sizes",
-  label: "Android Viewport Sizes",
-};
-
-let visualRegressionGuide = {
-  link: "/blog/responsive-visual-regression-checklist",
-  label: "Visual Regression Guide",
-};
-
-let responsiveBreakpointChecklist = {
-  link: "/blog/responsive-breakpoint-checklist",
-  label: "Breakpoint Checklist",
-};
-
-const youtube = {
-  link: "https://youtube.com/@sizzyapp",
-  label: "YouTube",
-};
-
-let changelog = {
-  link: "https://glink.so/sizzy",
-  label: "Changelog",
-  isExternal: true,
-};
-
-let jobs = { link: "/jobs", label: "Jobs", counter: allJobs.length };
-let about = { link: "/about", label: "About" };
-
-let login = {
-  link: "https://portal.sizzy.co/login",
-  label: "Login",
-  isExternal: true,
-};
-
-export let headerLinks: LinkType[] = [
-  /*{
-    link: "/use-cases",
-    label: "Use cases",
-  },*/
-  { link: "/features", label: "Features" },
-  { link: "/customers", label: "Customers" },
-  // { link: "/vs-other-browsers", label: "Comparison" },
-  /*{
-    link: "https://portal.sizzy.co/download",
-    label: "Download",
-    isExternal: true,
-  },*/
-  {
-    link: "/pricing",
-    label: "Pricing",
-  },
-  about,
-];
-
-export let learnPopupLinks = [
-  viewportChecker,
-  screenshotGenerator,
-  screenshotComparisonChecklist,
-  responsiveQaChecklist,
-  websiteBreakpointFinder,
-  cssBreakpointChecker,
-  browserSizeCheatSheet,
-  responsiveBreakpointChecklist,
-  androidViewportSizes,
-  iphoneViewportSizes,
-  visualRegressionGuide,
-  docs,
-  roadmap,
-  changelog,
-  youtube,
-];
-export let companyLinks = [about, jobs];
-export const mobileLinks: LinkType[] = [...headerLinks, ...learnPopupLinks, login];
-
-export let footerLinks: LinkType[] = [
-  { link: "/privacy", label: "Privacy" },
-  { link: "/terms", label: "Terms and Conditions" },
-];
+export const chatLink: Link | null = clientEnv.NEXT_PUBLIC_ENABLE_CHAT_PAGE
+  ? {
+      label: "Chat",
+      href: "/chat",
+      icon: LucideMessageSquare,
+    }
+  : null;

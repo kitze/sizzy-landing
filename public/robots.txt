@@ -1,4 +1,8 @@
+# Sizzy - The Browser for Web Developers
+# https://sizzy.co
+
 User-agent: *
 Allow: /
 
+# Sitemap location
 Sitemap: https://sizzy.co/sitemap.xml

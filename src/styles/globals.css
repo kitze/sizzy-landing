@@ -1,0 +1,223 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --font-sans:
+    var(--font-sans), ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+
+  @keyframes accordion-down {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+    }
+  }
+  @keyframes accordion-up {
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+    to {
+      height: 0;
+    }
+  }
+}
+
+@utility container {
+  margin-inline: auto;
+  padding-inline: 2rem;
+  @media (width >= 640px) {
+    max-width: none;
+  }
+  @media (width >= 1400px) {
+    max-width: 1400px;
+  }
+}
+
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
+
+@utility debug {
+  @apply border border-red-500;
+}
+
+@utility horizontal {
+  @apply flex flex-row;
+}
+
+@utility h {
+  @apply flex flex-row;
+}
+
+@utility v {
+  @apply flex flex-col;
+}
+
+@utility vertical {
+  @apply flex flex-col;
+}
+
+:root {
+  --header-height: 60px; /* Matching the HEADER_HEIGHT from config */
+  --container-max-width: 1200px; /* Standard max width for containers across the app */
+  color-scheme: dark;
+}
+
+html {
+  color-scheme: dark;
+}
+
+@layer base {
+  * {
+    border-color: currentColor;
+  }
+  body {
+    background: white;
+    color: black;
+  }
+}
+.vertical {
+  @apply flex flex-col;
+}
+
+.horizontal {
+  @apply flex flex-row;
+}
+
+.vertical.center {
+  @apply items-center justify-center;
+}
+
+.horizontal.center {
+  @apply items-center justify-center;
+}
+
+.horizontal.center-v {
+  @apply items-center;
+}
+
+.vertical.center-h {
+  @apply justify-center;
+}
+
+/*
+  ---break---
+*/
+
+@layer base {
+  * {
+    border-color: currentColor;
+  }
+  body {
+    background: white;
+    color: black;
+  }
+}
+
+@keyframes slide-out {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse-subtle {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+::view-transition-old(page) {
+  animation: slide-out 0.3s ease-in-out;
+}
+
+::view-transition-new(page) {
+  animation: slide-in 0.3s ease-in-out;
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 2s ease-in-out infinite;
+}
+
+/* SSR-safe scroll animation - elements start hidden via CSS */
+.scroll-animate-item {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* When container becomes visible, animate children */
+.scroll-animate-container.is-visible .scroll-animate-item {
+  animation: fadeInUp 0.5s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Stagger delays for grid items */
+.scroll-animate-container.is-visible .scroll-animate-item:nth-child(1) { animation-delay: 0ms; }
+.scroll-animate-container.is-visible .scroll-animate-item:nth-child(2) { animation-delay: 50ms; }
+.scroll-animate-container.is-visible .scroll-animate-item:nth-child(3) { animation-delay: 100ms; }
+.scroll-animate-container.is-visible .scroll-animate-item:nth-child(4) { animation-delay: 150ms; }
+.scroll-animate-container.is-visible .scroll-animate-item:nth-child(5) { animation-delay: 200ms; }
+.scroll-animate-container.is-visible .scroll-animate-item:nth-child(6) { animation-delay: 250ms; }
+.scroll-animate-container.is-visible .scroll-animate-item:nth-child(7) { animation-delay: 300ms; }
+.scroll-animate-container.is-visible .scroll-animate-item:nth-child(8) { animation-delay: 350ms; }
+
+/* GPU-accelerated blur backgrounds to prevent scroll flicker */
+.gpu-blur {
+  transform: translateZ(0);
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
