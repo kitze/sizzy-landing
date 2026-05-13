@@ -11,7 +11,10 @@ export const SizzyFooter = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-8">
           {/* Brand */}
           <div className="col-span-2 md:col-span-1 space-y-4">
-            <a href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+            <a
+              href="/"
+              className="flex items-center gap-2 hover:opacity-80 transition-opacity"
+            >
               <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-white/10">
                 <Monitor className="h-4 w-4 text-white" strokeWidth={2} />
               </div>
@@ -28,10 +31,16 @@ export const SizzyFooter = () => {
           <div className="space-y-4">
             <h4 className="font-semibold text-sm text-white">Product</h4>
             <div className="flex flex-col gap-3 text-sm text-zinc-500">
-              <a href="#features" className="hover:text-white transition-colors cursor-pointer">
+              <a
+                href="#features"
+                className="hover:text-white transition-colors cursor-pointer"
+              >
                 Features
               </a>
-              <a href="#pricing" className="hover:text-white transition-colors cursor-pointer">
+              <a
+                href="#pricing"
+                className="hover:text-white transition-colors cursor-pointer"
+              >
                 Pricing
               </a>
               <a
@@ -39,6 +48,12 @@ export const SizzyFooter = () => {
                 className="hover:text-white transition-colors cursor-pointer"
               >
                 Start Free Trial
+              </a>
+              <a
+                href="/tools"
+                className="hover:text-white transition-colors cursor-pointer"
+              >
+                Tools
               </a>
               <a
                 href={sizzyMarketingLinks.changelog}
