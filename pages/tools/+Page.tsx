@@ -1,6 +1,7 @@
 import { SizzyFooter } from "@/app/(landing)/home/_components/SizzyFooter";
 import { MadeByKitze } from "@/components/MadeByKitze";
 import { ScrollingHeader } from "@/components/ScrollingHeader";
+import { sizzyBlogLinks } from "@/config/sizzy-blog-posts";
 import { sizzyMarketingLinks } from "@/config/sizzy-marketing-links";
 import { sizzyToolLinks } from "@/config/sizzy-tools";
 import { ArrowRight, CheckCircle2, Monitor } from "lucide-react";
@@ -81,6 +82,40 @@ export function Page() {
               </a>
             </div>
           </div>
+
+          <section className="mt-16">
+            <div className="mb-6 max-w-2xl">
+              <h2 className="text-3xl font-semibold text-white">
+                Responsive testing guides
+              </h2>
+              <p className="mt-3 leading-7 text-zinc-400">
+                Short references for viewport sizes, breakpoint audits, and
+                visual regression passes.
+              </p>
+            </div>
+
+            <div className="grid gap-4 md:grid-cols-2">
+              {sizzyBlogLinks.map(({ href, title, description }) => (
+                <a
+                  key={href}
+                  href={href}
+                  className="group rounded-2xl border border-white/10 bg-zinc-950 p-6 transition-colors hover:border-cyan-400/40 hover:bg-cyan-400/10"
+                >
+                  <div className="mb-8 flex items-center justify-between">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-white/10 text-white">
+                      <CheckCircle2 className="h-5 w-5" strokeWidth={2} />
+                    </div>
+                    <ArrowRight
+                      className="h-5 w-5 text-zinc-600 transition-transform group-hover:translate-x-1 group-hover:text-cyan-200"
+                      strokeWidth={2}
+                    />
+                  </div>
+                  <h3 className="text-2xl font-semibold text-white">{title}</h3>
+                  <p className="mt-3 leading-7 text-zinc-400">{description}</p>
+                </a>
+              ))}
+            </div>
+          </section>
         </div>
       </section>
 
