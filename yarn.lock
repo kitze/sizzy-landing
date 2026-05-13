@@ -2998,11 +2998,6 @@ flagged-respawn@^2.0.0:
   resolved "https://registry.yarnpkg.com/flagged-respawn/-/flagged-respawn-2.0.0.tgz#abf39719dcfe1ac06c86c9466081c541c682987b"
   integrity sha512-Gq/a6YCi8zexmGHMuJwahTGzXlAZAOsbCVKduWXC6TlLCjjFRlExMJc4GC2NYPYZ0r/brw9P7CpRgQmlPVeOoA==
 
-focus-options-polyfill@1.5.1:
-  version "1.5.1"
-  resolved "https://registry.yarnpkg.com/focus-options-polyfill/-/focus-options-polyfill-1.5.1.tgz#0f422580d9d1fb65651f2968b547032eb17dab3c"
-  integrity sha512-7yH20IePROHJLLbJvqqtsG420jE6DuukccapiB/WagtUpnc98r9NzHbX5rnjCDgdZqLgcqlzGjn+8l0Zb8Zf9w==
-
 for-in@^1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/for-in/-/for-in-1.0.2.tgz#81068d295a8142ec0ac726c6e2200c30fb6d5e80"
@@ -5838,13 +5833,10 @@ react-is@^16.13.1, react-is@^16.6.0, react-is@^16.7.0:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
-react-medium-image-zoom@^4.4.3:
-  version "4.4.3"
-  resolved "https://registry.yarnpkg.com/react-medium-image-zoom/-/react-medium-image-zoom-4.4.3.tgz#d5e3074becef7be4bfe35ebcd291eac462093bf5"
-  integrity sha512-I928Z6mEMRUup4CPa+XtASiSuFzdVb1ecztXpF7xAJddXv4XZSE4n5gleZNYCn5wEU1LQY5LiN4aNW4KgrOVIA==
-  dependencies:
-    focus-options-polyfill "1.5.1"
-    tslib "^2.4.0"
+react-medium-image-zoom@^5.4.5:
+  version "5.4.5"
+  resolved "https://registry.yarnpkg.com/react-medium-image-zoom/-/react-medium-image-zoom-5.4.5.tgz#dc3e5fc18761ef38f85e0c35637033bf5cfb7485"
+  integrity sha512-58QSIRK6X3uw2fSTejJRnH0JuKTZl7ZJYX+sAMaYx4YTEm33gsNdnP5RuQSCnBiAvisQeErqZWAT31bR89WB6g==
 
 react-property@2.0.0:
   version "2.0.0"
