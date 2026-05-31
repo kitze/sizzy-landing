@@ -45,7 +45,7 @@ const defaultApps: KitzeApp[] = [
     name: "Sotto",
     tagline: "Voice-to-text for macOS",
     description: "Speak naturally. Type instantly. 100% local & private.",
-    url: "https://sotto.so",
+    url: "https://sotto.to",
     featured: false,
   },
   {

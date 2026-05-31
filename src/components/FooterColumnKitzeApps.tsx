@@ -13,7 +13,7 @@ const defaultApps: KitzeAppLink[] = [
   { name: "Benji", url: "https://benji.so" },
   { name: "Zero to Shipped", url: "https://zerotoshipped.com" },
   { name: "DMX", url: "https://dmx.to" },
-  { name: "Sotto", url: "https://sotto.so" },
+  { name: "Sotto", url: "https://sotto.to" },
   { name: "Tubely", url: "https://tubely.app" },
   { name: "JustWrite", url: "https://justwrite.ink" },
   { name: "Passlock", url: "https://passlock.dev" },

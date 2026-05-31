@@ -30,7 +30,7 @@ const defaultApps: KitzeAppLink[] = [
   { name: "JustWrite", url: "https://justwrite.ink" },
   { name: "DMX", url: "https://dmx.to" },
   { name: "Passlock", url: "https://passlock.to" },
-  { name: "Sotto", url: "https://sotto.so" },
+  { name: "Sotto", url: "https://sotto.to" },
   { name: "Glink", url: "https://glink.so" },
   { name: "JoinRepo", url: "https://joinrepo.com" },
   { name: "ReleaseFlow", url: "https://releaseflow.net" },
