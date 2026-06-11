@@ -3,7 +3,37 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import { ArrowRight } from "lucide-react";
 import { sizzyMarketingLinks } from "@/config/sizzy-marketing-links";
+import { trackTrialCta, useHeroVariant } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
+
+type HeroCopy = {
+  line1: string;
+  line2: string;
+  subtext: string;
+};
+
+const heroControl: HeroCopy = {
+  line1: "Test every breakpoint",
+  line2: "at once. Without 5 windows.",
+  subtext:
+    "One window, every device side-by-side. Synchronized scrolling, clicking, and forms. Debug responsive CSS in a fraction of the time.",
+};
+
+const heroCopy: Record<string, HeroCopy> = {
+  control: heroControl,
+  "stop-resizing": {
+    line1: "Stop resizing your browser",
+    line2: "to test responsive design.",
+    subtext:
+      "See your site on every device at once - phones, tablets, desktops - with synchronized scrolling, clicking, and forms. Built on Chromium.",
+  },
+  "ship-faster": {
+    line1: "Ship responsive UIs",
+    line2: "in half the time.",
+    subtext:
+      "Sizzy is the browser made for web development. Every breakpoint visible at once, every interaction synchronized, every project remembered.",
+  },
+};
 
 const DeviceFrame = ({
   type,
@@ -122,6 +152,8 @@ export const SizzyHero = () => {
   const [scrollY, setScrollY] = useState(0);
   const [activeDevice, setActiveDevice] = useState<number | null>(null);
   const [isAnimating, setIsAnimating] = useState(true);
+  const heroVariant = useHeroVariant();
+  const copy = heroCopy[heroVariant] ?? heroControl;
 
   // Synchronized scroll animation
   useEffect(() => {
@@ -183,10 +215,9 @@ export const SizzyHero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            Test every breakpoint
+            {copy.line1}
             <br />
-            at once.{" "}
-            <span className="text-zinc-500">Without 5 windows.</span>
+            <span className="text-zinc-500">{copy.line2}</span>
           </motion.h1>
 
           <motion.p
@@ -195,8 +226,7 @@ export const SizzyHero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            One window, every device side-by-side. Synchronized scrolling,
-            clicking, and forms. Debug responsive CSS in a fraction of the time.
+            {copy.subtext}
           </motion.p>
 
           <motion.div
@@ -208,6 +238,9 @@ export const SizzyHero = () => {
             <div className="flex flex-col items-center gap-3 sm:flex-row">
               <a
                 href={sizzyMarketingLinks.portal}
+                onClick={() =>
+                  trackTrialCta("hero", { hero_variant: heroVariant })
+                }
                 className="group inline-flex h-12 items-center justify-center gap-2 rounded-full bg-white px-8 font-medium text-black transition-all hover:bg-zinc-200"
               >
                 Start Free Trial

@@ -34,6 +34,14 @@ export function Head() {
             shortDescription:
               "Responsive testing tools and checklists for web release QA.",
           }
+        : pageContext.urlPathname === "/blog"
+          ? {
+              title: "Sizzy Blog - Responsive Testing Guides",
+              description:
+                "Practical guides on multi-device testing, media query debugging, viewport references, and the tools that make responsive web development faster.",
+              shortDescription:
+                "Responsive testing guides for web developers, from the Sizzy team.",
+            }
         : pageContext.urlPathname === "/download"
           ? {
               title: "Get Sizzy",
@@ -92,10 +100,37 @@ export function Head() {
     ],
   };
 
+  const blogJsonLd = blogPost
+    ? {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        headline: blogPost.title,
+        description: blogPost.description,
+        url: pageUrl,
+        dateModified: blogPost.updatedAt,
+        datePublished: blogPost.updatedAt,
+        keywords: blogPost.tags.join(", "),
+        author: {
+          "@type": "Person",
+          name: "Kitze",
+          url: "https://twitter.com/thekitze",
+        },
+        publisher: {
+          "@type": "Organization",
+          name: "Sizzy",
+          url: siteUrl,
+        },
+        mainEntityOfPage: { "@type": "WebPage", "@id": pageUrl },
+      }
+    : null;
+
   return (
     <>
       {/* Canonical URL */}
       <link rel="canonical" href={pageUrl} />
+
+      {/* Analytics preconnect */}
+      <link rel="preconnect" href="https://posthog.server.kitze.io" />
 
       {/* Favicons */}
       <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png" />
@@ -175,6 +210,12 @@ export function Head() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      {blogJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(blogJsonLd) }}
+        />
+      )}
     </>
   );
 }

@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { sizzyMarketingLinks } from "@/config/sizzy-marketing-links";
+import { trackTrialCta } from "@/lib/analytics";
 
 const steps = [
   {
@@ -71,6 +72,7 @@ export const SizzyDownload = () => {
         >
           <motion.a
             href={sizzyMarketingLinks.portal}
+            onClick={() => trackTrialCta("footer_cta")}
             whileHover={{ y: -2 }}
             whileTap={{ scale: 0.98 }}
             className="inline-flex items-center gap-2 rounded-full bg-white px-8 py-3 font-medium text-black transition-all hover:bg-zinc-200"

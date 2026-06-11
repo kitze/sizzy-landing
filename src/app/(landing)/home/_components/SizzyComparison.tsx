@@ -185,6 +185,23 @@ export const SizzyComparison = () => {
           >
             Sizzy is built on Chromium - your favorite Chrome extensions work perfectly.
           </motion.p>
+
+          <motion.p
+            className="text-center text-sm text-zinc-500 mt-3"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.6 }}
+          >
+            Comparing dev browsers?{" "}
+            <a
+              href="/blog/polypane-vs-sizzy-vs-responsively"
+              className="text-zinc-300 underline underline-offset-4 transition-colors hover:text-white"
+            >
+              Read our honest Polypane vs Sizzy vs Responsively breakdown
+            </a>
+            .
+          </motion.p>
         </motion.div>
       </div>
     </section>

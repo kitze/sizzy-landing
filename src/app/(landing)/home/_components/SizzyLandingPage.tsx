@@ -7,6 +7,7 @@ import { SizzyPhotoStudio } from "./SizzyPhotoStudio";
 import { SizzySessions } from "./SizzySessions";
 import { SizzyUseCases } from "./SizzyUseCases";
 import { SizzyComparison } from "./SizzyComparison";
+import { SizzyFaq } from "./SizzyFaq";
 import { SizzyPricing } from "./SizzyPricing";
 import { SizzyTestimonials } from "./SizzyTestimonials";
 import { SizzySocialProof } from "./SizzySocialProof";
@@ -15,6 +16,7 @@ import { SizzyFooter } from "./SizzyFooter";
 import { MadeByKitze } from "@/components/MadeByKitze";
 import { ScrollingHeader } from "@/components/ScrollingHeader";
 import { sizzyMarketingLinks } from "@/config/sizzy-marketing-links";
+import { trackTrialCta } from "@/lib/analytics";
 import { Monitor } from "lucide-react";
 
 export const SizzyLandingPage = () => {
@@ -31,6 +33,7 @@ export const SizzyLandingPage = () => {
       >
         <a
           href={sizzyMarketingLinks.portal}
+          onClick={() => trackTrialCta("header")}
           className="inline-flex h-9 items-center justify-center rounded-full bg-white px-5 text-sm font-medium text-black transition-all hover:bg-zinc-200"
         >
           Start Free Trial
@@ -48,6 +51,7 @@ export const SizzyLandingPage = () => {
       <SizzyTestimonials />
       <SizzySocialProof />
       <SizzyPricing />
+      <SizzyFaq />
       <SizzyDownload />
       <MadeByKitze excludeApp="Sizzy" />
       <SizzyFooter />

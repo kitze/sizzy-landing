@@ -56,6 +56,12 @@ export const SizzyFooter = () => {
                 Tools
               </a>
               <a
+                href="/blog"
+                className="hover:text-white transition-colors cursor-pointer"
+              >
+                Blog
+              </a>
+              <a
                 href={sizzyMarketingLinks.changelog}
                 target="_blank"
                 rel="noopener noreferrer"

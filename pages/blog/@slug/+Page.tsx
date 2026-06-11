@@ -3,6 +3,7 @@ import {
   type SizzyResourcePageContent,
 } from "@/components/SizzyResourcePage";
 import { getSizzyBlogPost } from "@/config/sizzy-blog-posts";
+import { sizzyMarketingLinks } from "@/config/sizzy-marketing-links";
 import { usePageContext } from "vike-react/usePageContext";
 
 export function Page() {
@@ -19,11 +20,11 @@ export function Page() {
           description:
             "This Sizzy responsive testing article is not available.",
           intro:
-            "Browse the responsive testing tools for current public Sizzy references.",
-          backHref: "/tools",
-          backLabel: "All tools",
-          primaryHref: "/tools",
-          primaryLabel: "Browse tools",
+            "Browse the blog for current Sizzy responsive testing guides.",
+          backHref: "/blog",
+          backLabel: "All articles",
+          primaryHref: "/blog",
+          primaryLabel: "Browse articles",
           sections: [],
           checklist: [],
         }}
@@ -37,12 +38,12 @@ export function Page() {
     description: post.description,
     intro:
       "Use this guide as a compact release reference, then validate the same breakpoints in Sizzy with synchronized devices and screenshot evidence.",
-    backHref: "/tools",
-    backLabel: "All tools",
-    primaryHref: "/tools/viewport-checker",
-    primaryLabel: "Open viewport checker",
+    backHref: "/blog",
+    backLabel: "All articles",
+    primaryHref: sizzyMarketingLinks.portal,
+    primaryLabel: "Try Sizzy free for 14 days",
     secondaryHref: "/tools",
-    secondaryLabel: "Browse tools",
+    secondaryLabel: "Browse free tools",
     sections: post.sections,
     checklist: post.checklist,
     meta: `${post.readTime} - Updated ${post.updatedAt}`,

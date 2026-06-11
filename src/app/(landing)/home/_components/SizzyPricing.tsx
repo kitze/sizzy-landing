@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { Check, Crown } from "lucide-react";
 import { sizzyMarketingLinks } from "@/config/sizzy-marketing-links";
+import { trackTrialCta } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
 
 type Plan = {
@@ -124,6 +125,7 @@ const PricingCard = ({ plan, index }: { plan: Plan; index: number }) => (
 
     <a
       href={sizzyMarketingLinks.portal}
+      onClick={() => trackTrialCta("pricing", { plan: plan.id })}
       className={cn(
         "mb-8 flex w-full items-center justify-center rounded-full py-3 px-6 font-medium transition-colors",
         plan.popular

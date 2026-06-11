@@ -6,6 +6,7 @@ import { ErrorBoundary } from "react-error-boundary";
 import { RootErrorFallback } from "@/components/RootErrorFallback";
 import { KitzeUIProviders } from "@/components/core/KitzeUIProviders";
 import { RegisterHotkeys } from "@/components/RegisterHotkeys";
+import { AnalyticsProvider } from "@/components/AnalyticsProvider";
 import { hotkeys } from "@/config/hotkeys";
 import type { ReactNode } from "react";
 
@@ -16,6 +17,7 @@ export function Layout({ children }: { children: ReactNode }) {
         <KitzeUIProviders>
           <ErrorBoundary FallbackComponent={RootErrorFallback}>
             {children}
+            <AnalyticsProvider />
             <RegisterHotkeys hotkeys={hotkeys} />
           </ErrorBoundary>
         </KitzeUIProviders>
