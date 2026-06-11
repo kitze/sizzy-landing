@@ -16,6 +16,11 @@ export function initAnalytics() {
     capture_pageview: "history_change",
     autocapture: false,
     persistence: "localStorage+cookie",
+    loaded: (instance) => {
+      // Self-hosted remote config can lag behind newly created flags and
+      // report hasFeatureFlags=false, which skips the /flags call entirely.
+      instance.reloadFeatureFlags();
+    },
   });
 }
 
