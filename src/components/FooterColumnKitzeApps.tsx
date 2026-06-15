@@ -1,32 +1,12 @@
-"use client";
-
 import { ExternalLink } from "lucide-react";
 import { cn } from "@/lib/utils";
-
-export interface KitzeAppLink {
-  name: string;
-  url: string;
-}
-
-const defaultApps: KitzeAppLink[] = [
-  { name: "Sizzy", url: "https://sizzy.co" },
-  { name: "Benji", url: "https://benji.so" },
-  { name: "Zero to Shipped", url: "https://zerotoshipped.com" },
-  { name: "DMX", url: "https://dmx.to" },
-  { name: "Sotto", url: "https://sotto.to" },
-  { name: "Tubely", url: "https://tubely.app" },
-  { name: "JustWrite", url: "https://justwrite.ink" },
-  { name: "Passlock", url: "https://passlock.dev" },
-  { name: "Glink", url: "https://glink.to" },
-];
+import { KITZE_APPS, CURRENT_APP_SLUG, kitzeAppUrl } from "@/config/kitzeApps";
 
 export interface FooterColumnKitzeAppsProps {
-  /** App name to exclude from the list (typically the current app) */
+  /** Kept for backwards compatibility; self is excluded via CURRENT_APP_SLUG. */
   excludeApp?: string;
-  /** Ref parameter to append to URLs */
+  /** utm_source override (defaults to this site). */
   refParam?: string;
-  /** Custom apps list (overrides default) */
-  apps?: KitzeAppLink[];
   /** Custom title */
   title?: string;
   /** Additional className */
@@ -34,21 +14,12 @@ export interface FooterColumnKitzeAppsProps {
 }
 
 export const FooterColumnKitzeApps = ({
-  excludeApp,
   refParam,
-  apps = defaultApps,
-  title = "More by Kitze",
+  title = "More from Kitze",
   className,
 }: FooterColumnKitzeAppsProps) => {
-  const filteredApps = excludeApp
-    ? apps.filter((app) => app.name.toLowerCase() !== excludeApp.toLowerCase())
-    : apps;
-
-  const getUrl = (url: string) => {
-    if (!refParam) return url;
-    const separator = url.includes("?") ? "&" : "?";
-    return `${url}${separator}ref=${refParam}`;
-  };
+  const source = refParam || CURRENT_APP_SLUG;
+  const apps = KITZE_APPS.filter((app) => app.slug !== CURRENT_APP_SLUG);
 
   return (
     <div className={cn("space-y-4", className)}>
@@ -57,10 +28,10 @@ export const FooterColumnKitzeApps = ({
         <span className="text-[10px] text-zinc-600 font-normal">&#8599;</span>
       </h4>
       <div className="flex flex-col gap-3 text-sm text-zinc-500">
-        {filteredApps.map((app) => (
+        {apps.map((app) => (
           <a
-            key={app.name}
-            href={getUrl(app.url)}
+            key={app.slug}
+            href={kitzeAppUrl(app, source, "footer")}
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-white transition-colors group flex items-center gap-1 cursor-pointer"
@@ -69,6 +40,12 @@ export const FooterColumnKitzeApps = ({
             <ExternalLink className="h-3 w-3 opacity-0 group-hover:opacity-50 transition-opacity" />
           </a>
         ))}
+        <a
+          href="/apps"
+          className="pt-1 font-medium text-zinc-400 hover:text-white transition-colors cursor-pointer"
+        >
+          More apps &rarr;
+        </a>
       </div>
     </div>
   );
