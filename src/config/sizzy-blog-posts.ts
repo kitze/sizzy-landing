@@ -1,3 +1,5 @@
+import { sizzyBlogPostsMore } from "./sizzy-blog-posts-more";
+
 export type SizzyBlogPost = {
   slug: string;
   title: string;
@@ -12,9 +14,11 @@ export type SizzyBlogPost = {
   }>;
   checklist: string[];
   tags: string[];
+  faq?: Array<{ question: string; answer: string }>;
+  related?: string[];
 };
 
-export const sizzyBlogPosts = [
+const sizzyBlogPostsCore = [
   {
     slug: "browser-for-web-developers",
     title: "What Is a Browser for Web Developers?",
@@ -504,6 +508,11 @@ export const sizzyBlogPosts = [
     ],
     tags: ["CSS breakpoints", "responsive QA", "frontend release"],
   },
+] satisfies SizzyBlogPost[];
+
+export const sizzyBlogPosts = [
+  ...sizzyBlogPostsCore,
+  ...sizzyBlogPostsMore,
 ] satisfies SizzyBlogPost[];
 
 export const sizzyBlogLinks = sizzyBlogPosts.map(

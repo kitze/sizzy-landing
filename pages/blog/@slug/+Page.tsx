@@ -2,7 +2,7 @@ import {
   SizzyResourcePage,
   type SizzyResourcePageContent,
 } from "@/components/SizzyResourcePage";
-import { getSizzyBlogPost } from "@/config/sizzy-blog-posts";
+import { getSizzyBlogPost, sizzyBlogPosts } from "@/config/sizzy-blog-posts";
 import { sizzyMarketingLinks } from "@/config/sizzy-marketing-links";
 import { usePageContext } from "vike-react/usePageContext";
 
@@ -32,6 +32,15 @@ export function Page() {
     );
   }
 
+  const related = (post.related ?? [])
+    .map((relatedSlug) => {
+      const relatedPost = sizzyBlogPosts.find((p) => p.slug === relatedSlug);
+      return relatedPost
+        ? { href: `/blog/${relatedPost.slug}`, title: relatedPost.title }
+        : null;
+    })
+    .filter((item): item is { href: string; title: string } => item !== null);
+
   const content: SizzyResourcePageContent = {
     eyebrow: post.eyebrow,
     title: post.title,
@@ -47,6 +56,8 @@ export function Page() {
     sections: post.sections,
     checklist: post.checklist,
     meta: `${post.readTime} - Updated ${post.updatedAt}`,
+    faq: post.faq,
+    related,
   };
 
   return <SizzyResourcePage content={content} />;

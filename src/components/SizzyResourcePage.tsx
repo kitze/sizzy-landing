@@ -22,6 +22,8 @@ export type SizzyResourcePageContent = {
   }>;
   checklist: string[];
   meta?: string;
+  faq?: Array<{ question: string; answer: string }>;
+  related?: Array<{ href: string; title: string }>;
 };
 
 export function SizzyResourcePage({
@@ -140,6 +142,49 @@ export function SizzyResourcePage({
               ))}
             </div>
           </section>
+
+          {content.faq && content.faq.length > 0 && (
+            <section className="mt-5 rounded-2xl border border-white/10 bg-zinc-950 p-6 md:p-8">
+              <h2 className="text-2xl font-semibold text-white">
+                Frequently asked questions
+              </h2>
+              <div className="mt-6 grid gap-6">
+                {content.faq.map((item) => (
+                  <div key={item.question}>
+                    <h3 className="text-lg font-semibold text-white">
+                      {item.question}
+                    </h3>
+                    <p className="mt-2 leading-7 text-zinc-400">
+                      {item.answer}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
+
+          {content.related && content.related.length > 0 && (
+            <section className="mt-5 rounded-2xl border border-white/10 bg-zinc-950 p-6 md:p-8">
+              <h2 className="text-2xl font-semibold text-white">
+                Related guides
+              </h2>
+              <div className="mt-6 grid gap-3 md:grid-cols-2">
+                {content.related.map((item) => (
+                  <a
+                    key={item.href}
+                    href={item.href}
+                    className="group flex items-center gap-2 text-zinc-300 transition-colors hover:text-white"
+                  >
+                    <ArrowRight
+                      className="h-4 w-4 shrink-0 text-cyan-200 transition-transform group-hover:translate-x-0.5"
+                      strokeWidth={2}
+                    />
+                    <span className="leading-7">{item.title}</span>
+                  </a>
+                ))}
+              </div>
+            </section>
+          )}
         </div>
       </section>
 
