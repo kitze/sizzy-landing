@@ -1,5 +1,6 @@
 import { sizzyBlogPostsMore } from "./sizzy-blog-posts-more";
 import { sizzyBlogPostsBatch2 } from "./sizzy-blog-posts-batch2";
+import { sizzyBlogPostsBatch3 } from "./sizzy-blog-posts-batch3";
 
 export type SizzyBlogPost = {
   slug: string;
@@ -521,6 +522,7 @@ export const sizzyBlogPosts = [
   ...sizzyBlogPostsCore,
   ...sizzyBlogPostsMore,
   ...sizzyBlogPostsBatch2,
+  ...sizzyBlogPostsBatch3,
 ] satisfies SizzyBlogPost[];
 
 export const sizzyBlogLinks = sizzyBlogPosts.map(
