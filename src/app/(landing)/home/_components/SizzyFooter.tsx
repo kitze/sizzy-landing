@@ -32,6 +32,12 @@ export const SizzyFooter = () => {
             <h4 className="font-semibold text-sm text-white">Product</h4>
             <div className="flex flex-col gap-3 text-sm text-zinc-500">
               <a
+                href="/gallery"
+                className="hover:text-white transition-colors cursor-pointer"
+              >
+                Gallery
+              </a>
+              <a
                 href="#features"
                 className="hover:text-white transition-colors cursor-pointer"
               >
