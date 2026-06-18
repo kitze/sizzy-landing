@@ -63,7 +63,7 @@
     "use-media": "^1.5.0",
     "vaul": "^1.1.2",
     "vike": "^0.4.247",
-    "vike-react": "^0.6.13",
+    "vike-react": "^0.6.21",
     "zod": "^3.24.3"
   },
   "devDependencies": {
