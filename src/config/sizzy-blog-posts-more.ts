@@ -1683,12 +1683,14 @@ export const sizzyBlogPostsMore = [
   },
   {
     slug: "fix-horizontal-scroll",
-    title: "How to Find and Fix Horizontal Scroll",
+    title: "How to Find and Remove the Horizontal Scroll Bar",
     description:
-      "A step-by-step method to track down the element causing unwanted horizontal scroll on mobile and fix it without breaking other layouts.",
+      "A step-by-step method to track down the element causing an unwanted horizontal scroll bar on mobile and remove it without breaking other layouts.",
     eyebrow: "CSS debugging",
     readTime: "6 min read",
-    updatedAt: "2026-06-15",
+    updatedAt: "2026-06-18",
+    intro:
+      "An unwanted horizontal scroll bar means some element is wider than the viewport. The fix is never overflow-x: hidden - that just hides the symptom. Here is how to find the exact element causing the horizontal scroll bar and remove it for good.",
     sections: [
       {
         heading: "Why horizontal scroll happens",
@@ -1727,8 +1729,13 @@ export const sizzyBlogPostsMore = [
       "overflow-x: hidden isn't used to mask the real cause.",
       "The fix is confirmed on actual mobile viewport widths.",
     ],
-    tags: ["horizontal scroll", "css overflow", "mobile bugs"],
+    tags: ["horizontal scroll bar", "css overflow", "mobile bugs"],
     faq: [
+      {
+        question: "How do I remove the horizontal scroll bar?",
+        answer:
+          "Find the element wider than the viewport and constrain it - add max-width: 100% to media and tables, use box-sizing: border-box, and replace 100vw with 100%. Removing the overflowing element's width removes the horizontal scroll bar properly, unlike overflow-x: hidden which only hides it.",
+      },
       {
         question: "How do I find what's causing horizontal scroll?",
         answer:
@@ -2458,7 +2465,9 @@ export const sizzyBlogPostsMore = [
       "How to open real DevTools for a page running on a phone using remote debugging on Android and iOS, plus faster local alternatives.",
     eyebrow: "DevTools deep dive",
     readTime: "6 min read",
-    updatedAt: "2026-06-15",
+    updatedAt: "2026-06-18",
+    intro:
+      "Phones have no built-in inspect element gesture, but you can still open real DevTools for a page running on a mobile device. This covers Android remote debugging over chrome://inspect, the iOS path (see our dedicated iPhone guide), and a faster local loop for everyday layout work.",
     sections: [
       {
         heading: "Remote debugging on Android",
@@ -2507,7 +2516,7 @@ export const sizzyBlogPostsMore = [
       {
         question: "How do I inspect element on an iPhone?",
         answer:
-          "Enable Web Inspector in iOS Safari settings, connect the device to a Mac, and use Safari's Develop menu to inspect the page. This requires macOS - there is no native Windows path to iOS Web Inspector.",
+          "Enable Web Inspector in iOS Safari settings, connect the device to a Mac, and use Safari's Develop menu to inspect the page. There is no native Windows path to iOS Web Inspector. See our dedicated guide on how to inspect element on iPhone for the full walkthrough and Mac-free alternatives.",
       },
       {
         question: "Is there a faster way to inspect mobile layouts?",
@@ -2516,9 +2525,9 @@ export const sizzyBlogPostsMore = [
       },
     ],
     related: [
+      "how-to-inspect-element-on-iphone",
       "test-website-on-android",
       "chrome-devtools-tips",
-      "test-on-iphone-without-iphone",
     ],
   },
   {

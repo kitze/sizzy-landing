@@ -46,7 +46,8 @@ export function Page() {
     title: post.title,
     description: post.description,
     intro:
-      "Use this guide as a compact release reference, then validate the same breakpoints in Sizzy with synchronized devices and screenshot evidence.",
+      post.intro ??
+      "This guide gives you the practical version, then shows where Sizzy speeds it up - testing across synchronized devices with screenshot evidence in one window.",
     backHref: "/blog",
     backLabel: "All articles",
     primaryHref: sizzyMarketingLinks.portal,

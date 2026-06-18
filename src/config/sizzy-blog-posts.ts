@@ -1,4 +1,5 @@
 import { sizzyBlogPostsMore } from "./sizzy-blog-posts-more";
+import { sizzyBlogPostsBatch2 } from "./sizzy-blog-posts-batch2";
 
 export type SizzyBlogPost = {
   slug: string;
@@ -7,6 +8,7 @@ export type SizzyBlogPost = {
   eyebrow: string;
   readTime: string;
   updatedAt: string;
+  intro?: string;
   sections: Array<{
     heading: string;
     body: string;
@@ -66,6 +68,11 @@ const sizzyBlogPostsCore = [
       "Decide based on measured time saved, not the price tag.",
     ],
     tags: ["browser for web developers", "dev browser", "web development tools"],
+    related: [
+      "best-browser-for-developers",
+      "chrome-devtools-device-mode-limitations",
+      "test-responsive-design-on-multiple-devices",
+    ],
   },
   {
     slug: "test-responsive-design-on-multiple-devices",
@@ -513,6 +520,7 @@ const sizzyBlogPostsCore = [
 export const sizzyBlogPosts = [
   ...sizzyBlogPostsCore,
   ...sizzyBlogPostsMore,
+  ...sizzyBlogPostsBatch2,
 ] satisfies SizzyBlogPost[];
 
 export const sizzyBlogLinks = sizzyBlogPosts.map(

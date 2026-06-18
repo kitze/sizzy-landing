@@ -9,7 +9,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && node scripts/generate-sitemap.mjs",
     "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx}\" --cache",
     "format:write": "prettier --write \"**/*.{ts,tsx,js,jsx}\" --cache",
     "check": "tsc --noEmit",
