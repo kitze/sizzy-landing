@@ -2,6 +2,62 @@ import { getSizzyBlogPost } from "@/config/sizzy-blog-posts";
 import { getSizzyToolPage } from "@/config/sizzy-tools";
 import { usePageContext } from "vike-react/usePageContext";
 
+// Ad pixels (Google Ads + Reddit), gated on build-time env vars. With these
+// unset, nothing renders into the HTML — safe to deploy before ad accounts
+// exist. Sizzy's paid focus is Google Search, so the Google global tag is the
+// primary tag here; Reddit is secondary.
+const viteEnv = (import.meta as unknown as { env: Record<string, string> })
+  .env;
+const GOOGLE_ADS_ID = viteEnv.VITE_GOOGLE_ADS_ID || "";
+const GOOGLE_ADS_LEAD_LABEL = viteEnv.VITE_GOOGLE_ADS_LEAD_LABEL || "";
+const GOOGLE_ADS_PURCHASE_LABEL = viteEnv.VITE_GOOGLE_ADS_PURCHASE_LABEL || "";
+const REDDIT_PIXEL_ID = viteEnv.VITE_REDDIT_PIXEL_ID || "";
+
+const adsPixelScript = `
+  ${
+    GOOGLE_ADS_ID
+      ? `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+  var gtagScript=document.createElement('script');gtagScript.async=!0;gtagScript.src='https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ADS_ID}';document.head.appendChild(gtagScript);
+  gtag('js', new Date());
+  gtag('config', '${GOOGLE_ADS_ID}');`
+      : ""
+  }
+  ${
+    REDDIT_PIXEL_ID
+      ? `!function(w,d){if(!w.rdt){var p=w.rdt=function(){p.sendEvent?p.sendEvent.apply(p,arguments):p.callQueue.push(arguments)};p.callQueue=[];var t=d.createElement("script");t.src="https://www.redditstatic.com/ads/pixel.js",t.async=!0;var s=d.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}}(window,document);
+  rdt('init','${REDDIT_PIXEL_ID}');
+  rdt('track','PageVisit');`
+      : ""
+  }
+  (function() {
+    try {
+      var params = new URLSearchParams(window.location.search);
+      var path = window.location.pathname;
+      // Reaching /download is the strongest on-site intent signal for a
+      // free-trial / download product, so treat it as the lead conversion.
+      if (path === "/download" || path.indexOf("/download/") === 0) {
+        ${
+          GOOGLE_ADS_ID && GOOGLE_ADS_LEAD_LABEL
+            ? `if (window.gtag) window.gtag('event', 'conversion', { send_to: '${GOOGLE_ADS_ID}/${GOOGLE_ADS_LEAD_LABEL}' });`
+            : ""
+        }
+        ${REDDIT_PIXEL_ID ? `if (window.rdt) window.rdt('track', 'Lead', { content_name: 'sizzy-download' });` : ""}
+      }
+      // Optional purchase-success bridge: ?purchase=success(&amount=X)
+      if (params.get('purchase') === 'success') {
+        var amount = Number(params.get('amount'));
+        var value = amount > 0 ? amount : undefined;
+        ${
+          GOOGLE_ADS_ID && GOOGLE_ADS_PURCHASE_LABEL
+            ? `if (window.gtag) window.gtag('event', 'conversion', { send_to: '${GOOGLE_ADS_ID}/${GOOGLE_ADS_PURCHASE_LABEL}', value: value, currency: 'USD' });`
+            : ""
+        }
+        ${REDDIT_PIXEL_ID ? `if (window.rdt) window.rdt('track', 'Purchase', { value: value, currency: 'USD' });` : ""}
+      }
+    } catch (e) {}
+  })();
+`;
+
 export function Head() {
   const pageContext = usePageContext();
   const siteUrl = "https://sizzy.co";
@@ -237,6 +293,12 @@ export function Head() {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
         />
+      )}
+
+      {/* Ad pixels (Google Ads + Reddit) — only rendered when an ad env var
+          is set; Sizzy's paid focus is Google Search. */}
+      {(GOOGLE_ADS_ID || REDDIT_PIXEL_ID) && (
+        <script dangerouslySetInnerHTML={{ __html: adsPixelScript }} />
       )}
     </>
   );
