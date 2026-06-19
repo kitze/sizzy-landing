@@ -252,10 +252,10 @@ export function Head() {
       <meta property="og:description" content={shortDescription} />
       <meta property="og:site_name" content="Sizzy" />
       <meta property="og:locale" content="en_US" />
-      <meta property="og:image" content={`${siteUrl}/opengraph-image.png`} />
+      <meta property="og:image" content={`${siteUrl}/meta/og.png`} />
       <meta
         property="og:image:secure_url"
-        content={`${siteUrl}/opengraph-image.png`}
+        content={`${siteUrl}/meta/og.png`}
       />
       <meta property="og:image:type" content="image/png" />
       <meta property="og:image:width" content="1200" />
@@ -271,7 +271,7 @@ export function Head() {
       <meta name="twitter:creator" content="@thekitze" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={shortDescription} />
-      <meta name="twitter:image" content={`${siteUrl}/opengraph-image.png`} />
+      <meta name="twitter:image" content={`${siteUrl}/meta/og.png`} />
       <meta
         name="twitter:image:alt"
         content="Sizzy - The Browser for Web Developers"
